@@ -20,8 +20,8 @@ namespace Exercise3
         private int _age;
         private string _fName;
         private string _lName;
-        private int _height;
-        private int _weight;
+        private double _height;
+        private double _weight;
 
    // Declare the property
         public int Age
@@ -79,14 +79,14 @@ namespace Exercise3
                 
             }
         }
-        public int Height
+        public double Height
         {
             get {
                 return _height; 
             }
             set { _height = value; }
         }
-        public int Weight
+        public double Weight
         {
             get {
                 return _weight; 
@@ -102,7 +102,7 @@ namespace Exercise3
             
         }
         // Overloaded Constructor ctor
-        public Person(string fName, string lName, int age, int weight, int height)
+        public Person(string fName, string lName, int age, double weight, double height)
         {
             FName = fName;
             LName = lName;
