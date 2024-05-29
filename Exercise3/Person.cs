@@ -101,10 +101,6 @@ namespace Exercise3
         {
             
         }
-      /*  public Person(int _age)
-        {
-            Age = _age;
-        }*/
         // Overloaded Constructor ctor
         public Person(string fName, string lName, int age, int weight, int height)
         {
