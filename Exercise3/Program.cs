@@ -9,25 +9,14 @@ namespace Exercise3
         {
             Console.WriteLine("Hello, World!");
 
-
-         /*
-            int[,] arr = new int[3, 4]//??? Ask Dimitris
-         3 is the {} amount
-         4 is the number of numbers inside the {}
-         {
-                {1,2, 3,4},
-                {5,6,7,8},
-                {9,10,11,12}
-         };
-            Console.WriteLine(arr[2, 1]);//10
-         */
-
+           
             //Instansiera en person
             // Person person = new Person("paul","Yashouh",34,87,188);    
             /*      Person person = new Person();*/
+            // 1.)
             PersonHandler handler = new PersonHandler();
 
-
+            // 2.)
             List<UserError> errors = new List<UserError>
             {
               new NumericInputError(),
@@ -35,15 +24,21 @@ namespace Exercise3
               new NullInputError(),
               new EmptyInputError(),
               new SpecialChracterInputError(),
+
             };
 
             foreach (UserError error in errors)
             {
+              
                 Console.WriteLine(error.UEMessage());
             }
 
+            // 3.)
+         
           
-
+            AnimalOutput animalOutput = new AnimalOutput();
+            animalOutput.CreateAndOutputAnimals();
+            Console.ReadLine();
 
             try
             {
