@@ -16,7 +16,7 @@ namespace Exercise3
             
         }*/
 
-        //Declareing the backing field
+        //Declareing the backing field to hold data as members
         private int _age;
         private string _fName;
         private string _lName;
@@ -110,6 +110,14 @@ namespace Exercise3
             Height = height;
             Weight = weight;
         }
+
+        //Methods describe an object behavior
+        public void PrintText(string printText)
+        {
+            Console.WriteLine(printText);
+        }
+
+      
 
     }
 }

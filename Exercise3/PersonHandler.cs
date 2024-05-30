@@ -49,9 +49,12 @@ namespace Exercise3
             SetWeight(person,weight);
             SetHeight(person,height);
 
+
+
             return person;
         }
 
+           
     }
 
 }
