@@ -1,8 +1,10 @@
 ﻿
 // Define the abstract Animal class.
 using Exercise3;
+using System.Drawing;
 
-public abstract class Animal
+
+    public abstract class Animal
     {
         // Properties for Animal class.
         public string Name { get; set; }
@@ -19,6 +21,13 @@ public abstract class Animal
 
         // Declare an abstract method DoSound to be implemented by derived classes.
         public abstract string DoSound();
+
+        //3.4) Method return a string
+        public virtual string Stats()
+        {
+        //String interpolation
+        return $"Animal Type: {Name}, Weight: {Weight}, Age: {Age}";
+        }
     }
 
     // Define the Horse class which inherits from the Animal class.
@@ -38,7 +47,11 @@ public abstract class Animal
         {
             return "Neigh";
         }
+    public override string Stats()
+    {
+        return $"{base.Stats()},Color:{Color}";
     }
+}
 
     // Define the Dog class which inherits from the Animal class.
     public class Dog : Animal
@@ -57,7 +70,11 @@ public abstract class Animal
         {
             return "Bark";
         }
+    public override string Stats()
+    {
+        return $"{base.Stats()}, Breed:{Breed}";
     }
+}
 
     // Define the Hedgehog class which inherits from the Animal class.
     public class Hedgehog : Animal
@@ -76,7 +93,11 @@ public abstract class Animal
         {
             return "hog";
         }
+    public override string Stats()
+    {
+        return $"{base.Stats()},NrOfSpikes:{NrOfSpikes}";
     }
+}
 
     // Define the Worm class which inherits from the Animal class.
     public class Worm : Animal
@@ -95,7 +116,11 @@ public abstract class Animal
         {
             return "no sound";
         }
-    }
+       public override string Stats()
+       {
+        return $"{base.Stats()},IsPoisonous:{IsPoisonous}";
+       }
+}
 
     // Define the Wolf class which inherits from the Animal class.
     public class Wolf : Animal
@@ -114,17 +139,29 @@ public abstract class Animal
         {
             return "Howl";
         }
+
+    public override string Stats()
+    {
+        return $"{base.Stats()},IsPackLeader:{IsPackLeader}";
     }
+}
 
              //------------------------Wolfman--------------------------------//
              
-public class Wolfman:IPerson
+public class Wolfman : Wolf , IPerson
 {
+    public Wolfman(string name, double weight, int age, bool isPackLeader) : base(name, weight, age, isPackLeader)
+    {
+    }
+
     public void Talk()
     {
-        Console.WriteLine("Hello people");
+        
+        Console.WriteLine(" Wolfman say: I can sense your fear, but I mean no harm unless you threaten my pack.");
+     
     }
 }
+
 
 
 
@@ -133,8 +170,10 @@ public class Wolfman:IPerson
 /*
  1)  Om vi under utvecklingen kommer fram till att samtliga fåglar behöver ett nytt attribut, i vilken klass bör vi lägga det?
 
-  2) Om alla djur behöver det nya attributet,vart skulle man lägga det då?
+  I Bird Klassen
 
+  2) Om alla djur behöver det nya attributet,vart skulle man lägga det då?
+    I Animal Klassen
  */
 
 
@@ -142,84 +181,4 @@ public class Wolfman:IPerson
 
 
     // Define the abstract Bird class which inherits from the Animal class.
-    public abstract class Bird : Animal
-    {
-        // Property unique to Bird.
-        public int WingSpan { get; set; }
-
-        // Declare an abstract method Fly to be implemented by derived classes.
-        public abstract void Fly();
-
-        // Constructor for the Bird class, taking name, weight, age, and wingspan as parameters.
-        protected Bird(string name, double weight, int age, int wingSpan) : base(name, weight, age)
-        {
-            // Initialize the WingSpan property with the value passed to the constructor.
-            WingSpan = wingSpan;
-        }
-
-        // Override the abstract DoSound() method from the Animal class to provide specific implementation for Birds.
-        public override string DoSound()
-        {
-            return "Chirp";
-        }
-
-        // Define the Pelican class which inherits from the Bird class.
-        public class Pelican : Bird
-        {
-            // Property unique to Pelican.
-            public double BeakLength { get; set; }
-
-            // Constructor for the Pelican class, taking name, weight, age, wingspan, and beak length as parameters.
-            public Pelican(string name, double weight, int age, int wingSpan, double beakLength) : base(name, weight, age, wingSpan)
-            {
-                // Initialize the BeakLength property with the value passed to the constructor.
-                BeakLength = beakLength;
-            }
-
-            // Override the abstract Fly method from the Bird class to provide specific implementation for Pelican.
-            public override void Fly()
-            {
-                Console.WriteLine("Pelican is flying over the lake.");
-            }
-        }
-
-        // Define the Flamingo class which inherits from the Bird class.
-        public class Flamingo : Bird
-        {
-            // Property unique to Flamingo.
-            public string Color { get; set; }
-
-            // Constructor for the Flamingo class, taking name, weight, age, wingspan, and color as parameters.
-            public Flamingo(string name, double weight, int age, int wingSpan, string color) : base(name, weight, age, wingSpan)
-            {
-                // Initialize the Color property with the value passed to the constructor.
-                Color = color;
-            }
-
-            // Override the abstract Fly method from the Bird class to provide specific implementation for Flamingo.
-            public override void Fly()
-            {
-                Console.WriteLine("Flamingo is flying with grace!");
-            }
-        }
-
-        // Define the Swan class which inherits from the Bird class.
-        public class Swan : Bird
-        {
-            // Property unique to Swan.
-            public double NeckLength { get; set; }
-
-            // Constructor for the Swan class, taking name, weight, age, wingspan, and neck length as parameters.
-            public Swan(string name, double weight, int age, int wingSpan, double neckLength) : base(name, weight, age, wingSpan)
-            {
-                // Initialize the NeckLength property with the value passed to the constructor.
-                NeckLength = neckLength;
-            }
-
-            // Override the abstract Fly method from the Bird class to provide specific implementation for Swan.
-            public override void Fly()
-            {
-                Console.WriteLine("Swan is flying elegantly!");
-            }
-        }
-    }
+   

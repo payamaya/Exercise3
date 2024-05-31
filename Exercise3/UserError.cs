@@ -15,7 +15,7 @@ namespace Exercise3
             public override string UEMessage()
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Polymorfism UserError");
+                Console.WriteLine("\n 3.2) Polymorfism UserError\n");
                 Console.ResetColor();
                 return "You tried to use a numeric input in a text only filed.This fires an error!";
             }
