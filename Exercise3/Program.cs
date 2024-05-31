@@ -1,5 +1,7 @@
 ﻿using System;
+using static Animal;
 using static Exercise3.Bird;
+using static Exercise3.Dog;
 using static Exercise3.UserError;
 
 namespace Exercise3
@@ -31,35 +33,72 @@ namespace Exercise3
                 Console.WriteLine(error.UEMessage());
             }
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Animal.Wolfman wolfman = new Animal.Wolfman("\n Alpha", 40, 4, true);
+            Console.WriteLine($"\n Wolfman name: {wolfman.Name}, Weights: {wolfman.Weight}, Age: {wolfman.Age}");
+            wolfman.Talk();
+            Console.ResetColor();
+
 
             // 3.3) Inherit 
 
-            BirdPrinter.CreateAndOutputBirds();
-
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Wolfman wolfman = new Wolfman("Alpha", 40, 4, true);
-
-            Console.WriteLine($"\n Wolfman name: {wolfman.Name} Weights: {wolfman.Weight} Age: {wolfman.Age}");
-            Console.ResetColor();
-            wolfman.Talk();
+          /*  BirdPrinter.CreateAndOutputBirds();
+            DogPrinter.CreateAndOutputDogs();*/
+            Animal.CreateAndOutputAnimals();
 
             // 3.4) Polymorfism
-             
-            List<Animal> animals = new List<Animal>();
 
-            animals.Add(new Horse("Thunder", 500, 5, "Black"));
-            animals.Add(new Dog("Buddy", 30, 3, "Labrador"));
-            animals.Add(new Hedgehog("Spike", 1, 2, 200));
-            animals.Add(new Worm("Wiggly", 0.1, 1, false));
-            animals.Add(new Wolf("Alpha", 40, 4, true));
-            animals.Add(new Pelican("Pelican Pete", 15, 5, 250, 18.5));
-            animals.Add(new Flamingo("Flora", 3.5, 6, 150, "Pink"));
-            animals.Add(new Swan("Swan Song", 12, 7, 180, 30.0));
+            List<Animal> animals = new List<Animal>();
+            animals.Add(new Pelican("¨Pelican", 12, 3, 20, 24));
+            animals.Add(new Flamingo("Flamingo", 12, 3, 20, "Pin"));
+            animals.Add(new Swan("Swan", 12, 3, 20, 34));
+
+            animals.Add(new GermanShepherd("Rex", 12, 5, "German shepher", true));
+            animals.Add(new Labrador("Max", 8, 1, "Labrador", "Golden"));
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n\nAnimal stats and sound\n");
+            Console.ResetColor();
 
             foreach (var animal in animals)
             {
-                Console.WriteLine($"{animal.Stats()}");
+
+                Console.WriteLine($"{animal.Stats()} ,\x1b[31m \"Sound\" \x1b[0m :  {animal.DoSound()}");
+
+                // Check if animal is of type IPerson
+                if (animal is IPerson)
+                {
+                    Console.WriteLine($"This animal has IPerson interface: {animal}");
+                    ((IPerson)animal).Talk();
+                    Console.WriteLine("This animal can talk");
+                }
+                else
+                {
+                    Console.WriteLine("This animal cannot talk");
+                }
+                Console.WriteLine();
+
             }
+         /*   List<Animal> animals = new List<Animal>();
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine($"{animal.Stats()} ,\x1b[31m \"Sound\" \x1b[0m :  {animal.DoSound()}");
+            }*/
+
+       /*     List<Bird> birds = Bird.CreateBirds();
+
+            foreach (var bird in birds)
+            {
+                Console.WriteLine($"{bird.Stats()}");
+            }
+
+
+            List<Animal.Dog> dogs = Dog.CreateDogs();
+          
+            foreach (var dog in dogs)
+            {
+                Console.WriteLine($"{dog.Stats()}");
+            }*/
 
             Console.ReadLine();
 
