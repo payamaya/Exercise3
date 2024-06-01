@@ -22,16 +22,6 @@ namespace Exercise3
             return $"{base.Stats()}, Breed: {Breed}";
         }
 
-        /*   public static List<Dog> CreateDogs()
-               {
-               List<Dog> dogs = new List<Dog>();
-               Console.WriteLine("\nDog List");
-               dogs.Add(new GermanShepherd("Rex",12,5,"German shepher", true));
-               dogs.Add(new Labrador("Max",8,1,"Labrador", "Golden"));
-
-               return dogs ; 
-           }*/
-
     }
         public class GermanShepherd : Dog
         {

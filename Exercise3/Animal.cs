@@ -38,7 +38,7 @@ public abstract class Animal
             {
                 new Horse("Thunder", 500, 5, "Black"),
                 new Dog("Rander", 240, 5, "Black"),
-              /*  new Bird("Thunder", 500, 5, 34),*/
+                new Bird("Mander", 500, 5, 34),
                 new Hedgehog("Spike", 1, 2, 200),
                 new Worm("Wiggly", 0.1, 1, false),
                 new Wolf("Alpha", 40, 4, true)
@@ -68,13 +68,10 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Horse.
-        /*  
-          public override string DoSound()
-          {
-              return "Neigh";
-          }
-        */
-        public override string DoSound() => "Neigh";
+    
+        public override string DoSound() {
+            return "Neigh";
+        }
 
         public override string Stats()
         {
@@ -95,11 +92,36 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Dog.
-        public override string DoSound() => "Bark";
+        public override string DoSound() {
+            return "Bark";
+        }
 
         public override string Stats()
         {
             return $"{base.Stats()}, Breed:{Breed}";
+        }
+    }    // Define the Dog class which inherits from the Animal class.
+    public class Bird : Animal
+    {
+        // Property unique to Dog.
+        public int WingSpan { get; set; }
+       /* public abstract void Fly();*/
+
+        // Constructor for the Dog class, taking name, weight, age, and breed as parameters.
+        public Bird(string name, double weigth, int age, int wingSpan) : base(name, weigth, age)
+
+        {
+            WingSpan = wingSpan;
+        }
+
+        // Override the abstract DoSound() method from the Animal class to provide specific implementation for Bird.
+        public override string DoSound()
+        {
+            return "Chirp";
+        }
+        public override string Stats()
+        {
+            return $"{base.Stats()} , WingSpan: {WingSpan}";
         }
     }
 
@@ -116,7 +138,9 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Hedgehog.
-        public override string DoSound() => "hog";
+        public override string DoSound() {
+            return "hog";
+        }
 
         public override string Stats()
         {
@@ -137,7 +161,9 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Worm.
-        public override string DoSound() => "no sound";
+        public override string DoSound() {
+            return "no sound";
+        }
 
         public override string Stats()
         {
@@ -158,7 +184,9 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Wolf.
-        public override string DoSound() => "Howl";
+        public override string DoSound() {
+            return "Howl";
+        }
 
 
         public override string Stats()

@@ -44,12 +44,12 @@ namespace Exercise3
 
           /*  BirdPrinter.CreateAndOutputBirds();
             DogPrinter.CreateAndOutputDogs();*/
-            Animal.CreateAndOutputAnimals();
+          /*  Animal.CreateAndOutputAnimals();*/
 
             // 3.4) Polymorfism
 
             List<Animal> animals = new List<Animal>();
-            animals.Add(new Pelican("¨Pelican", 12, 3, 20, 24));
+            animals.Add(new Pelican("Pelican", 12, 3, 20, 24));
             animals.Add(new Flamingo("Flamingo", 12, 3, 20, "Pin"));
             animals.Add(new Swan("Swan", 12, 3, 20, 34));
 
@@ -72,6 +72,16 @@ namespace Exercise3
                     ((IPerson)animal).Talk();
                     Console.WriteLine("This animal can talk");
                 }
+                 if (animal is Bird bird)
+                {
+                   bird.Fly();
+                    bird.Stats();   
+                }
+                 if(animal is Dog dog)
+                {
+                    dog.DoSound();
+                }
+
                 else
                 {
                     Console.WriteLine("This animal cannot talk");
@@ -79,26 +89,22 @@ namespace Exercise3
                 Console.WriteLine();
 
             }
-         /*   List<Animal> animals = new List<Animal>();
-            foreach (Animal animal in animals)
-            {
-                Console.WriteLine($"{animal.Stats()} ,\x1b[31m \"Sound\" \x1b[0m :  {animal.DoSound()}");
-            }*/
+           Animal.CreateAndOutputAnimals();
 
-       /*     List<Bird> birds = Bird.CreateBirds();
+            /*     List<Bird> birds = Bird.CreateBirds();
 
-            foreach (var bird in birds)
-            {
-                Console.WriteLine($"{bird.Stats()}");
-            }
+                 foreach (var bird in birds)
+                 {
+                     Console.WriteLine($"{bird.Stats()}");
+                 }
 
 
-            List<Animal.Dog> dogs = Dog.CreateDogs();
-          
-            foreach (var dog in dogs)
-            {
-                Console.WriteLine($"{dog.Stats()}");
-            }*/
+                 List<Animal.Dog> dogs = Dog.CreateDogs();
+
+                 foreach (var dog in dogs)
+                 {
+                     Console.WriteLine($"{dog.Stats()}");
+                 }*/
 
             Console.ReadLine();
 

@@ -25,20 +25,12 @@ namespace Exercise3
         }
         public override string Stats()
         {
-            return $"{base.Stats()} ,WingSpan:{WingSpan}";
+            return $"{base.Stats()} , WingSpan: {WingSpan}";
         }
 
-        /* public static List<Bird> CreateBirds()
-         {
-             List<Bird> birds = new List<Bird>();
-             Console.WriteLine("\nBird List");
-             birds.Add(new Pelican("¨Pelican",12,3,20,24));
-             birds.Add(new Flamingo("Flamingo",12,3,20,"Pin"));
-             birds.Add(new Swan("Swan",12,3,20,34));
-
-             return birds;
-         }*/
+    
     }
+
     public class Pelican : Bird
     {
         public double BeakLength { get; set; }
@@ -46,14 +38,6 @@ namespace Exercise3
         {
             BeakLength = beakLength;
         }
-        /* public override void Fly()
-         {
-             Console.WriteLine("Pelican is flying over the lake.");
-         }  */
-        /*public override string Stats()
-        {
-            return $"{base.Stats()} ,BeakLength:{BeakLength}";
-        }*/
         public override void Fly() => Console.WriteLine("Pelican is flying over the lake.");
 
         public override string Stats() => $"{base.Stats()} ,BeakLength:{BeakLength}";
