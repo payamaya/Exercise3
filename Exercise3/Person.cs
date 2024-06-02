@@ -8,13 +8,12 @@ namespace Exercise3
 {
     public class Person
     {
-
         //Default constructor ctor=shortcut
-      /*  //Constructor with no parameters is referres to as the default constructor
-        public Person()
-        {
-            
-        }*/
+        /*  //Constructor with no parameters is referres to as the default constructor
+          public Person()
+          {
+
+          }*/
 
         //Declareing the backing field to hold data as members
         private int _age;
@@ -23,34 +22,28 @@ namespace Exercise3
         private double _height;
         private double _weight;
 
-   // Declare the property
+        // Declare the property
         public int Age
         {
-   //Add the getter and setter
-            get {
+            //Add the getter and setter
+            get => _age;
             
-                return _age;
-            }
-            set {
+            set
+            {
 
                 if (value <= 0)
                 {
                     throw new ArgumentException("Age must be greater than 0");
                 }
-                _age = value; 
+                _age = value;
             }
 
         }
 
-
         public string FName
         {
-            get {
-             
-
-                return _fName;
-            }
-
+            get => _fName;
+            
             set
             {
                 if (value.Length < 2 || value.Length > 10)
@@ -59,47 +52,43 @@ namespace Exercise3
                 }
                 _fName = value;
 
-            } 
+            }
         }
 
         public string LName
         {
-            get {
-              
-                return _lName; 
-            }
-            set 
+            get =>  _lName;
+            
+            set
             {
                 if (value.Length < 3 || value.Length > 15)
                 {
                     Console.WriteLine("Last name must be greater than 3 and less than 15");
                 }
 
-                _lName = value; 
-                
+                _lName = value;
+
             }
         }
         public double Height
         {
-            get {
-                return _height; 
-            }
+            get => _height;
+            
             set { _height = value; }
         }
         public double Weight
         {
-            get {
-                return _weight; 
-            }
+            get => _weight;
+            
             set { _weight = value; }
         }
 
         /* when overloaded contructor is defined the Default Constructor is not automatically created
          */
-        
+
         public Person()
         {
-            
+
         }
         // Overloaded Constructor ctor
         public Person(string fName, string lName, int age, double weight, double height)
@@ -116,8 +105,5 @@ namespace Exercise3
         {
             Console.WriteLine(printText);
         }
-
-      
-
     }
 }

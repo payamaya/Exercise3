@@ -10,7 +10,7 @@ namespace Exercise3
     {
         public abstract string UEMessage();
 
-        public class NumericInputError : UserError 
+        public class NumericInputError : UserError
         {
             public override string UEMessage()
             {
@@ -26,21 +26,21 @@ namespace Exercise3
             {
                 return "You tried to use a text input in a numeric only field.This fired an error!";
             }
-        }   
+        }
         public class NullInputError : UserError
         {
             public override string UEMessage()
             {
                 return "You tried to input a null value into a field. This fired an error!";
             }
-        }   
+        }
         public class EmptyInputError : UserError
         {
             public override string UEMessage()
             {
                 return "You tried to input an empty value into a field. This fired an error!";
             }
-        }        
+        }
         public class SpecialChracterInputError : UserError
         {
             public override string UEMessage()

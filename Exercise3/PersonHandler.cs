@@ -15,19 +15,13 @@ namespace Exercise3
 
         public void SetFirstName(Person person, string firstName)
         {
-            if (string.IsNullOrEmpty(firstName) || firstName.Length < 2 || firstName.Length > 10)
-            {
-                throw new ArgumentException("First name must be between 2 and 10 characters.");
-            }
+  
             person.FName = firstName;
         }
 
         public void SetLastName(Person person, string lastName)
         {
-            if(string.IsNullOrEmpty(lastName) || lastName.Length < 3 || lastName.Length > 10) 
-            {
-                throw new ArgumentException("Last name must be between 3 and 15 characters");            
-            }
+     
             person.LName = lastName;
         }
 
@@ -44,17 +38,15 @@ namespace Exercise3
         {
             Person person = new Person();
             SetAge(person, age);
-            SetFirstName(person,fName);
-            SetLastName(person,lName);
-            SetWeight(person,weight);
-            SetHeight(person,height);
-
-
+            SetFirstName(person, fName);
+            SetLastName(person, lName);
+            SetWeight(person, weight);
+            SetHeight(person, height);
 
             return person;
         }
 
-           
+
     }
 
 }

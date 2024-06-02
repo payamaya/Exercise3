@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Xml.Linq;
 
 
-public abstract class Animal
+public abstract class Animals
 {
     // Properties for Animal class.
     public string Name { get; set; }
@@ -13,7 +13,7 @@ public abstract class Animal
     public int Age { get; set; }
 
     // Constructor for the Animal class, taking name, weight, and age as parameters.
-    protected Animal(string name, double weight, int age)
+    protected Animals(string name, double weight, int age)
     {
         Name = name;
         Weight = weight;
@@ -27,36 +27,39 @@ public abstract class Animal
     public virtual string Stats()
     {
         //String interpolation
-        return $"\x1b[1;35m Animal Desc\x1b[0m: {Name}, Weight: {Weight}, Age: {Age}";
+        return $"\x1b[1;35m {Name} \x1b[0m: Weight: {Weight} kg, Age: {Age} years old";
     }
 
     // Static method to create and output animals.
-    public static List<Animal> CreateAndOutputAnimals()
+    public static List<Animals> CreateAndOutputAnimals()
     {
-        Console.WriteLine("\nAnimal List");
-        List<Animal> animals = new List<Animal>
+        Console.WriteLine("\nAnimal List:");
+        List<Animals> animals = new List<Animals>
             {
                 new Horse("Thunder", 500, 5, "Black"),
                 new Dog("Rander", 240, 5, "Black"),
                 new Bird("Mander", 500, 5, 34),
                 new Hedgehog("Spike", 1, 2, 200),
                 new Worm("Wiggly", 0.1, 1, false),
-                new Wolf("Alpha", 40, 4, true)
-                
-
+                new Wolf("Alpha", 40, 4, true),
+                new Wolfman("Derik",99,41, true)
             };
 
         foreach (var animal in animals)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(animal.Stats());
+           
+            Console.WriteLine($"\u001b[31m Animal Sound: \u001b[0m: {animal.DoSound()}");
+
             Console.ResetColor();
+           
         }
         return animals;
     }
 
     // Define the Horse class which inherits from the Animal class.
-    public class Horse : Animal
+    public class Horse : Animals
     {
         // Property unique to Horse.
         public string Color { get; set; }
@@ -68,19 +71,15 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Horse.
-    
-        public override string DoSound() {
-            return "Neigh";
-        }
 
-        public override string Stats()
-        {
-            return $"{base.Stats()},Color:{Color}";
-        }
+        public override string DoSound() => "Neigh";
+
+        public override string Stats() => $"{base.Stats()}, Color:{Color}";
+
     }
 
     // Define the Dog class which inherits from the Animal class.
-    public class Dog : Animal
+    public class Dog : Animals
     {
         // Property unique to Dog.
         public string Breed { get; set; }
@@ -92,20 +91,23 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Dog.
-        public override string DoSound() {
-            return "Bark";
-        }
+        /*   public override string DoSound() {
+               return "Bark";
+           }
+            public override string Stats()
+           {
+               return $"{base.Stats()}, Breed:{Breed}";
+           } */
+        public override string DoSound() => "Bark";
 
-        public override string Stats()
-        {
-            return $"{base.Stats()}, Breed:{Breed}";
-        }
+        public override string Stats() => $"{base.Stats()}, Breed:{Breed}";
+
     }    // Define the Dog class which inherits from the Animal class.
-    public class Bird : Animal
+    public class Bird : Animals
     {
         // Property unique to Dog.
         public int WingSpan { get; set; }
-       /* public abstract void Fly();*/
+        /* public abstract void Fly();*/
 
         // Constructor for the Dog class, taking name, weight, age, and breed as parameters.
         public Bird(string name, double weigth, int age, int wingSpan) : base(name, weigth, age)
@@ -115,18 +117,14 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Bird.
-        public override string DoSound()
-        {
-            return "Chirp";
-        }
-        public override string Stats()
-        {
-            return $"{base.Stats()} , WingSpan: {WingSpan}";
-        }
+        public override string DoSound() => "Chirp";
+
+        public override string Stats() => $"{base.Stats()}, WingSpan: {WingSpan}";
+
     }
 
     // Define the Hedgehog class which inherits from the Animal class.
-    public class Hedgehog : Animal
+    public class Hedgehog : Animals
     {
         // Property unique to Hedgehog.
         public int NrOfSpikes { get; set; }
@@ -138,18 +136,14 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Hedgehog.
-        public override string DoSound() {
-            return "hog";
-        }
+        public override string DoSound() => "hog";
 
-        public override string Stats()
-        {
-            return $"{base.Stats()},NrOfSpikes:{NrOfSpikes}";
-        }
+        public override string Stats() => $"{base.Stats()}, NrOfSpikes:{NrOfSpikes}";
+
     }
 
     // Define the Worm class which inherits from the Animal class.
-    public class Worm : Animal
+    public class Worm : Animals
     {
         // Property unique to Worm.
         public bool IsPoisonous { get; set; }
@@ -161,18 +155,14 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Worm.
-        public override string DoSound() {
-            return "no sound";
-        }
+        public override string DoSound() => "no sound";
 
-        public override string Stats()
-        {
-            return $"{base.Stats()},IsPoisonous:{IsPoisonous}";
-        }
+        public override string Stats() => $"{base.Stats()}, IsPoisonous:{IsPoisonous}";
+
     }
 
     // Define the Wolf class which inherits from the Animal class.
-    public class Wolf : Animal
+    public class Wolf : Animals
     {
         // Property unique to Wolf.
         public bool IsPackLeader { get; set; }
@@ -184,15 +174,10 @@ public abstract class Animal
         }
 
         // Override the abstract DoSound() method from the Animal class to provide specific implementation for Wolf.
-        public override string DoSound() {
-            return "Howl";
-        }
+        public override string DoSound() => "Howl";
 
+        public override string Stats() => $"{base.Stats()}, IsPackLeader:{IsPackLeader}";
 
-        public override string Stats()
-        {
-            return $"{base.Stats()}, IsPackLeader:{IsPackLeader}";
-        }
     }
 
     //------------------------Wolfman--------------------------------//
@@ -209,23 +194,10 @@ public abstract class Animal
             Console.WriteLine(" Wolfman say: I can sense your fear, but I mean no harm unless you threaten my pack.");
 
         }
+        public override string Stats() => $"{base.Stats()}, IsPackLeader: {IsPackLeader}";
+
     }
 }
 
 
 
-
-
-
-//Svara med kommentarer
-/*
- 1)  Om vi under utvecklingen kommer fram till att samtliga fåglar behöver ett nytt attribut, i vilken klass bör vi lägga det?
-
-  I Bird Klassen
-
-  2) Om alla djur behöver det nya attributet,vart skulle man lägga det då?
-    I Animal Klassen
- */
-
-
-   
