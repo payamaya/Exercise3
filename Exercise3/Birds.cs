@@ -11,6 +11,7 @@ namespace Exercise3
     public abstract class Bird : Animals
     {
         public int WingSpan { get; set; }
+        //Cannot be insyantiated
         public abstract void Fly();
 
         // constructor
