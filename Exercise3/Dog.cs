@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise3
 {
+    //Abstract so it can only be used as a based class
 
     public abstract class Dog : Animals
     {

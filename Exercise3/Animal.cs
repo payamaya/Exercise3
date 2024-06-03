@@ -4,6 +4,7 @@ using Exercise3;
 using System.Drawing;
 using System.Xml.Linq;
 
+//Abstract so it can only be used as a based class
 
 public abstract class Animals
 {
